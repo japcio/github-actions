@@ -1,4 +1,4 @@
-name: first
+name: show_time
 
 on: push
 
@@ -10,7 +10,7 @@ jobs:
     - name: Step one
       uses: actions/checkout@v2
     - name: Step two
-      run: env | sort -n
+      run: date
   job2:
     name: Second job
     runs-on: windows-latest
@@ -18,5 +18,14 @@ jobs:
     - name: Step one
       uses: actions/checkout@v2
     - name: Step two
-      run: "Get-ChildItem Env:"
+      run: "Get-Date"
+  job3:
+    name: Third job
+    runs-on: ubuntu-latest
+    needs: [job1, job2]
+    steps:
+    - name: Show notification
+      uses: actions/checkout@v2
+      run: echo "Job1 and Job2 completed successfully"
+      run: date
  
