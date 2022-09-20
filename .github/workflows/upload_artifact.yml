@@ -1,0 +1,20 @@
+name: upload_artifact
+
+on: push
+
+jobs:
+  job1:
+    name: First job
+    runs-on: ubuntu-latest
+    env: 
+      artifact_name: artifact_test
+    steps:
+    - name: Step one
+      uses: actions/checkout@v2
+    - name: Step two. Add text to artifact file.
+      run: echo "This is artifact file created on $date" > ./file.txt
+    - name: Upload file as artifact.
+      uses: actions/upload-artifact@v3
+        with: 
+          name: ${{ env.artifact_name }}
+          path: ./file.txt
