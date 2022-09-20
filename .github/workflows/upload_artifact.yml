@@ -15,6 +15,6 @@ jobs:
       run: echo "This is artifact file created on $date" > ./file.txt
     - name: Upload file as artifact.
       uses: actions/upload-artifact@v3
-        with: 
-          name: ${{ env.artifact_name }}
-          path: ./file.txt
+      with: 
+        name: ${{ env.artifact_name }}
+        path: .
