@@ -24,8 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [job1, job2]
     steps:
-    - name: Show notification
+    - name: Step 1
       uses: actions/checkout@v2
+    - name: Show notification
       run: echo "Job1 and Job2 completed successfully"
+    - name: Show date
       run: date
  
